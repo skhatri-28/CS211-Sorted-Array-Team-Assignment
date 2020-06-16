@@ -64,7 +64,7 @@ public class SortedList<E extends Comparable<E>> {
 	// value (-1 if not found)
 	public int indexOf(E value) {
 		int index = binarysearch(value);
-		if(index>0) {
+		if(index>=0) {
 			return index;
 		}
 		return -1;
@@ -84,10 +84,6 @@ public class SortedList<E extends Comparable<E>> {
 	// post: appends value in the appropriate index to maintain sorted order in the
 	// list
 	public void add(E value) {
-		if (size == 0) {
-			add(0, value);
-			return;
-		}
 		int index = binarysearch(value);
 		int insertionpoint = -(index+1);
 		add(insertionpoint, value);
