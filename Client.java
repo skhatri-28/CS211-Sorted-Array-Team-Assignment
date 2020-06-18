@@ -11,13 +11,14 @@
 
 public class Client {
 	   public static void main(String[] args) {
-	      SortedList<Integer> intlist = new SortedList<Integer>();
-	      processIntList(intlist);
+	      SortedList<Integer> intlist = new SortedList<Integer>();  
+	      processIntList(intlist); 	//process sorted list of integers
 	      System.out.println();
 	      SortedList<String> stringlist = new SortedList<String>();
-	      processStringList(stringlist);
+	      processStringList(stringlist); //process sorted list of strings
 	   }
 
+	   //runs all SortedList operations on a SortedList of Integers
 	   public static void processIntList(SortedList<Integer> list) {
 	      list.add(42);
 	      list.add(18);
@@ -33,6 +34,7 @@ public class Client {
 	      System.out.println("list.clear(): " + list);
 	   }
 
+	   //runs all SortedList operations on a SortedList of Strings
 	   public static void processStringList(SortedList<String> list) {
 	      list.add("any");
 	      list.add("before");
