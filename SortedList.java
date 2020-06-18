@@ -84,10 +84,12 @@ public class SortedList<E extends Comparable<E>> {
 	// post: appends value in the appropriate index to maintain sorted order in the
 	// list
 	public void add(E value) {
-		int index = binarysearch(value);
-		int insertionpoint = -(index+1);
-		add(insertionpoint, value);
-	}
+		int index = -(binarysearch(value) + 1);
+      if(index < 0) {
+		   return;
+	   }
+      add(index, value);
+   }
 
 	private int binarysearch(E value) {
 	   int min=0;
@@ -110,9 +112,9 @@ public class SortedList<E extends Comparable<E>> {
 	// post: inserts the given value at the given index specified by the
 	// add(E value) method, shifting subsequent values right
 	private void add(int index, E value) {
-		if (index < 0 || index > size) {
-			throw new IndexOutOfBoundsException("index: " + index);
-		}
+ 		if (index < 0 || index > size) {
+ 			throw new IndexOutOfBoundsException("index: " + index);
+ 		}
 		ensureCapacity(size + 1);
 		for (int i = size; i >= index + 1; i--) {
 			elementData[i] = elementData[i - 1];
